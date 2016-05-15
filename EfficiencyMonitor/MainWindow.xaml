@@ -1,0 +1,26 @@
+﻿<Window x:Class="EfficiencyMonitor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EfficiencyMonitor"
+        mc:Ignorable="d"
+        Title="EfficiencyMonitor" Height="350" Width="525" ResizeMode="CanMinimize" Icon="eye.ico">
+    <Window.ContextMenu>
+        <ContextMenu/>
+    </Window.ContextMenu>
+    <Grid>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="259" Margin="10,50,0,0" VerticalAlignment="Top" Width="497"/>
+        <Button x:Name="StartBtn" Content="Старт" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="StartBtn_Click"/>
+        <Button x:Name="PauseBtn" Content="Пауза" HorizontalAlignment="Left" Margin="107,10,0,0" VerticalAlignment="Top" Width="75" Click="PauseBtn_Click"/>
+        <Button x:Name="StopBtn" Content="Стоп" HorizontalAlignment="Left" Margin="213,10,0,0" VerticalAlignment="Top" Width="75"/>
+    </Grid>
+    <Window.Resources>
+        <ContextMenu x:Key="TrayMenu">
+            <MenuItem Header="Hide" Click="ShowHideMainWindow" />
+            <MenuItem Header="Item2" />
+            <Separator />
+            <MenuItem Header="Exit" Click="MenuExitClick" />
+        </ContextMenu>
+    </Window.Resources>
+</Window>
