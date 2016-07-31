@@ -61,12 +61,32 @@ namespace EfficiencyMonitor.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] DataBase {
+            get {
+                object obj = ResourceManager.GetObject("DataBase", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
         /// </summary>
         internal static System.Drawing.Icon eye {
             get {
                 object obj = ResourceManager.GetObject("eye", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] sqlite3 {
+            get {
+                object obj = ResourceManager.GetObject("sqlite3", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

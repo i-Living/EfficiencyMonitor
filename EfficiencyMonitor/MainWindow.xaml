@@ -5,22 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EfficiencyMonitor"
         mc:Ignorable="d"
-        Title="EfficiencyMonitor" Height="350" Width="525" ResizeMode="CanMinimize" Icon="eye.ico">
+        Title="EfficiencyMonitor" Height="400" Width="600" ResizeMode="CanMinimize" Icon="eye.ico" Closing="Window_Closing" Closed="Window_Closed">
     <Window.ContextMenu>
         <ContextMenu/>
     </Window.ContextMenu>
     <Grid>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="259" Margin="10,50,0,0" VerticalAlignment="Top" Width="497"/>
-        <Button x:Name="StartBtn" Content="Старт" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="StartBtn_Click"/>
-        <Button x:Name="PauseBtn" Content="Пауза" HorizontalAlignment="Left" Margin="107,10,0,0" VerticalAlignment="Top" Width="75" Click="PauseBtn_Click"/>
-        <Button x:Name="StopBtn" Content="Стоп" HorizontalAlignment="Left" Margin="213,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="StartBtn" Content="Начать отслеживание" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="151" Click="StartBtn_Click"/>
+        <Button x:Name="PauseBtn" Content="Пауза" HorizontalAlignment="Left" Margin="187,10,0,0" VerticalAlignment="Top" Width="80" Click="PauseBtn_Click"/>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="242" Margin="10,110,0,0" VerticalAlignment="Top" Width="565">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Название приложения" Width="490" DisplayMemberBinding="{Binding Path=Name}"></GridViewColumn>
+                        <GridViewColumn Header="Время" Width="65" DisplayMemberBinding="{Binding Path=Time1}"></GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="UpdateDB" Content="Обновить БД" HorizontalAlignment="Left" Margin="404,10,0,0" VerticalAlignment="Top" Width="100" Click="UpdateDB_Click"/>
+        <Grid HorizontalAlignment="Left" Height="28" Margin="10,76,0,0" VerticalAlignment="Top" Width="565">
+            <Label x:Name="MouseLabel" Content="Количество нажатий мыши" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label x:Name="MouseNumber" Content="" HorizontalAlignment="Left" Margin="176,0,0,0" VerticalAlignment="Top" Width="80"/>
+            <Label x:Name="KeyboardLabel" Content="Количиство нажаний клавиатуры" HorizontalAlignment="Left" Margin="275,0,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="KeyboardNumber" Content="" HorizontalAlignment="Left" Margin="475,0,0,0" VerticalAlignment="Top" Width="80"/>
+        </Grid>
+        <Button x:Name="Settings" Content="Настройки" HorizontalAlignment="Left" Margin="509,10,0,0" VerticalAlignment="Top" Width="75" Click="Settings_Click"/>
+        <Label x:Name="label" Content="Времени прошло:" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="TimeLabel" Content="" HorizontalAlignment="Left" Margin="187,45,0,0" VerticalAlignment="Top" Width="80"/>
     </Grid>
     <Window.Resources>
         <ContextMenu x:Key="TrayMenu">
-            <MenuItem Header="Hide" Click="ShowHideMainWindow" />
-            <MenuItem Header="Item2" />
+            <MenuItem Header="Спрятать" Click="ShowHideMainWindow" />
+            <MenuItem Header="Настройки" Click="Settings_Click" />
             <Separator />
-            <MenuItem Header="Exit" Click="MenuExitClick" />
+            <MenuItem Header="Выход" Click="MenuExitClick" />
         </ContextMenu>
     </Window.Resources>
 </Window>

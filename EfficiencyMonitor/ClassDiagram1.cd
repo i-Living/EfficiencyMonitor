@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EfficiencyMonitor.ActivityAnalyzer" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ActivityAnalyzer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EfficiencyMonitor.App" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EfficiencyMonitor.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KCCAQAIQBABgEgAEBDBkAgEAAAgIACCAAIQAAQACAAQ=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EfficiencyMonitor.MessageWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAABAAAAAAAAAACAAAAACAAAQAAAAAAAA=</HashCode>
+      <FileName>MessageWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EfficiencyMonitor.Settings" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SARQAAIAAAAAAAhQAAAAAAAABAIEAAAAAAQBAAAAEAA=</HashCode>
+      <FileName>Settings.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EfficiencyMonitor.DB.AppCategory" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAEAABAAAAAAAAAAA=</HashCode>
+      <FileName>DB\AppCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EfficiencyMonitor.DB.CategoryCollection" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DB\CategoryCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EfficiencyMonitor.DB.DbConnector" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEAIAAAAAAAAAAgAAECAAAAAQAAAAACAAhAAAAAAAAA=</HashCode>
+      <FileName>DB\DbConnector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EfficiencyMonitor.DB.ProcessCollection" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAgAAAAAAAAAgAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DB\ProcessCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EfficiencyMonitor.DB.ProcessData" Collapsed="true">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAQAAAAAAAAQAAAAAEAAAIgAAAAAACQA=</HashCode>
+      <FileName>DB\ProcessData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EfficiencyMonitor.Monitors.ActivityMonitor" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAhBAAAAEAAAAAAAAAAAAAAIAAAAACAAIAEEAAA=</HashCode>
+      <FileName>Monitors\ActivityMonitor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EfficiencyMonitor.Monitors.InputMonitor" Collapsed="true">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AA0BAAAAAAAAAEAAUAAAAAAAAAAKAABAYAAAAAAEAAQ=</HashCode>
+      <FileName>Monitors\InputMonitor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EfficiencyMonitor.Monitors.WindowMonitor" Collapsed="true">
+    <Position X="9.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAQAADAAAAAAABAAAAI=</HashCode>
+      <FileName>Monitors\WindowMonitor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EfficiencyMonitor.Properties.Resources" Collapsed="true">
+    <Position X="13" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAREAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EfficiencyMonitor.Properties.Settings" Collapsed="true">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.SQLiteException" Collapsed="true">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.NotNullConstraintViolationException" Collapsed="true">
+    <Position X="3.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.SQLiteConnection" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEEABACnAiAbrBBAEQAQQCAWIgRoBQYAIgBCAAEU=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SQLite.SQLiteConnectionString" Collapsed="true">
+    <Position X="14.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.TableAttribute" Collapsed="true">
+    <Position X="6" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.ColumnAttribute" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.PrimaryKeyAttribute" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.AutoIncrementAttribute" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.IndexedAttribute" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAQAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.IgnoreAttribute" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.UniqueAttribute" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.MaxLengthAttribute" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.CollationAttribute" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.NotNullAttribute" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.TableMapping" Collapsed="true">
+    <Position X="7.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAMAAiCgCAUAQgAAAQAAACAAAAgAAAAAACQgAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.Orm" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAECAAAAAAAAAAABgAAAAAAAAAAAwAAAAAAAACAAE=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.SQLiteCommand" Collapsed="true">
+    <Position X="11.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAQAYEAAABAEBBAQAAgAABAAAEEAAACAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.PreparedSqlLiteInsertCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAEAAAACAAQAUAAAAAAEACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SQLite.BaseTableQuery" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.TableQuery&lt;T&gt;" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EOAAAAAIAICAAVsAIAAARAQABAGIAWA0AgHAQAAAUJA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SQLite.SQLite3" Collapsed="true">
+    <Position X="7.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIJAgUgAAkgALQsCCBlAAQAUYQAAgQAAMAAACICDBAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.SQLiteAsyncConnection" Collapsed="true">
+    <Position X="9.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAACCIAAAAQAAAASAEACABAAAgIAAABIBAAEMA=</HashCode>
+      <FileName>SQLiteAsync.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.AsyncTableQuery&lt;T&gt;" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIAAAAAAAAAAAAAAgAAACAAAAAkAAAAAAAFAAAAAEQE=</HashCode>
+      <FileName>SQLiteAsync.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.CreateTablesResult" Collapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SQLiteAsync.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.SQLiteConnectionPool" Collapsed="true">
+    <Position X="13" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAABAAAAABAEAAAAAAABAAAAAAAAAAAAIABAAAAA=</HashCode>
+      <FileName>SQLiteAsync.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.SQLiteConnectionWithLock" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SQLiteAsync.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="SQLite.SQLiteOpenFlags" Collapsed="true">
+    <Position X="7.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAAACAAAAAAAAAAAAAACAIAACkAIEAAIAAAAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SQLite.CreateFlags" Collapsed="true">
+    <Position X="6" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgQAAAIAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>SQLite.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

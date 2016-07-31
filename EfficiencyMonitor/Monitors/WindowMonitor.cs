@@ -24,7 +24,6 @@ namespace EfficiencyMonitor.Monitors
             const int nChars = 256;
             StringBuilder Buff = new StringBuilder(nChars);
             IntPtr handle = GetForegroundWindow();
-
             if (GetWindowText(handle, Buff, nChars) > 0)
             {
                 return Buff.ToString();

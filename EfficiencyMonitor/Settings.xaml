@@ -1,0 +1,46 @@
+﻿<Window x:Class="EfficiencyMonitor.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EfficiencyMonitor"
+        mc:Ignorable="d"
+        Title="Settings" Height="400" Width="600" Initialized="Window_Initialized">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="DefaultBtn" Content="По умолчанию" HorizontalAlignment="Left" Margin="174,0,0,10" VerticalAlignment="Bottom" Width="100" Height="22"/>
+        <Button x:Name="OkBtn" Content="Ок" HorizontalAlignment="Right" Margin="0,0,170,10" VerticalAlignment="Bottom" Width="75" Height="22"/>
+        <Button x:Name="CancelBtn" Content="Отмена" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75" Height="22"/>
+        <Button x:Name="ApplyBtn" Content="Применить" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Height="22"/>
+        <ListBox x:Name="lb" HorizontalAlignment="Left" Height="334" Margin="10,26,0,0" VerticalAlignment="Top" Width="146" FontSize="16" SelectionChanged="lb_SelectionChanged"/>
+
+        <Grid x:Name="settings" HorizontalAlignment="Left" Height="185" Margin="174,27,0,0" VerticalAlignment="Top" Width="408" Visibility="Hidden">
+            <Label x:Name="label" Content="Максимальное время бездействия" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="202"/>
+            <TextBox x:Name="idleTB" HorizontalAlignment="Left" Height="23" Margin="217,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91"/>
+            <Button x:Name="SaveidleBtn" Content="Сохранить" HorizontalAlignment="Left" Margin="313,14,0,0" VerticalAlignment="Top" Width="85" Click="SaveidleBtn_Click"/>
+        </Grid>
+        <Grid x:Name="MyGroups" HorizontalAlignment="Left" Height="187" Margin="174,25,0,0" VerticalAlignment="Top" Width="408" Visibility="Hidden">
+            <ListBox x:Name="GroupList" HorizontalAlignment="Left" Height="110" Margin="0,43,0,0" VerticalAlignment="Top" Width="188" SelectionChanged="GroupList_SelectionChanged"/>
+            <TextBox x:Name="AddGroupTB" HorizontalAlignment="Left" Height="23" Margin="207,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+            <Button x:Name="AddGroupBtn" Content="Добавить" HorizontalAlignment="Left" Margin="323,71,0,0" VerticalAlignment="Top" Width="85" Click="AddGroupBtn_Click"/>
+            <Button x:Name="DeleteGroupBtn" Content="Удалить" HorizontalAlignment="Left" Margin="115,158,0,0" VerticalAlignment="Top" Width="73"/>
+            <Label x:Name="label1" Content="Мои группы" HorizontalAlignment="Left" Height="24" Margin="0,10,0,0" VerticalAlignment="Top" Width="188"/>
+            <Label x:Name="label2" Content="Новая группа" HorizontalAlignment="Left" Margin="208,10,0,0" VerticalAlignment="Top" Height="34"/>
+            <ComboBox x:Name="cbNewGroup" HorizontalAlignment="Left" Margin="208,71,0,0" VerticalAlignment="Top" Width="110"/>
+            <ComboBox x:Name="cbSelectedGroup" HorizontalAlignment="Left" Margin="0,158,0,0" VerticalAlignment="Top" Width="110" SelectionChanged="cbSelectedGroup_SelectionChanged"/>
+        </Grid>
+        <Grid x:Name="ChangeGroups" HorizontalAlignment="Left" Height="269" Margin="174,27,0,0" VerticalAlignment="Top" Width="408" >
+            <ComboBox x:Name="SelectedAppsCB" HorizontalAlignment="Left" Margin="248,14,0,0" VerticalAlignment="Top" Width="150"/>
+            <ListBox x:Name="AllAppsLB" HorizontalAlignment="Left" Height="210" Margin="10,49,0,0" VerticalAlignment="Top" Width="150"/>
+            <ListBox x:Name="SelectedAppsLB" HorizontalAlignment="Left" Height="210" Margin="248,49,0,0" VerticalAlignment="Top" Width="150"/>
+            <Button x:Name="AddBtn" Content="⇨" HorizontalAlignment="Left" Margin="186,96,0,0" VerticalAlignment="Top" Width="40" FontSize="14" FontFamily="Arial Black" />
+            <Button x:Name="DeleteBtn" Content="⇦" HorizontalAlignment="Left" Margin="186,137,0,0" VerticalAlignment="Top" Width="40" FontSize="14" FontFamily="Arial Black"/>
+            <Label x:Name="label3" Content="Все программы" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Width="150"/>
+        </Grid>
+    </Grid>
+</Window>

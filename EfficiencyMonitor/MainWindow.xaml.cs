@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using EfficiencyMonitor.Monitors;
+using EfficiencyMonitor.DB;
 using System.IO;
 using System.Data.SQLite;
 using System.Data.Common;
@@ -25,35 +26,63 @@ namespace EfficiencyMonitor
     /// </summary>
     public partial class MainWindow : Window
     {
-        System.Timers.Timer t;
-        string _appName;
-        ulong _time;
-        WindowMonitor wm;
+        private System.Timers.Timer t;
+        private string _appName;
+        private ulong _time;
+        private int SaveTime;
+        public int maxSaveTime;
+        private WindowMonitor wm;
+        public ActivityMonitor am;
         private delegate void StrDel(string str);
-        private const string databaseName = @"..\..\DB\DataBase.db";
-        private Dictionary<string, ulong> dict;
+        public string dbPath = @"..\..\DB\DataBase.db";
+        //private Dictionary<string, ulong> dict;
         private System.Windows.Forms.NotifyIcon TrayIcon = null;
         private System.Windows.Controls.ContextMenu TrayMenu = null;
         private WindowState fCurrentWindowState = WindowState.Normal;
 
+        /////Test/////
+        private ProcessData pd;
+        private ProcessCollection pc;
+        private ProcessCollection dbpc;
+        private DbConnector dc;
+        public InputMonitor im;
+        //////////////
+        private System.DateTime startTime;
+        private TimeSpan runningTime;
         public MainWindow()
         {
             InitializeComponent();
-            dict = new Dictionary<string, ulong>();
+            //dict = new Dictionary<string, ulong>();
             t = new System.Timers.Timer();
             t.Interval = 1000;
             t.Elapsed += OnTimedEvent;
             _appName = string.Empty;
             wm = new WindowMonitor();
-            CreateDB();
+            //CreateDB();
             _time = 0;
-    }
+            SaveTime = 0;
+            maxSaveTime = 600;
+            pd = new ProcessData();
+            pc = new ProcessCollection();
+            dbpc = new ProcessCollection();
+            dc = new DbConnector(dbPath);
+            dbpc.Load(dc.GetAllProcess("KnownApplications"));
+            im = new InputMonitor(MouseNumber, KeyboardNumber);
+            im.Subscribe();
+            am = new ActivityMonitor(im);
+            startTime = DateTime.Now;
+
+            ////тест
+            //MessageWindow mw = new MessageWindow(am);
+            //mw.Message.Text = "Вы много отдыхаете, пора работать";
+            //mw.Show();
+        }
 
         private void CreateDB()
         {
-            if(!File.Exists(databaseName))
+            if(!File.Exists(dbPath))
             {
-                SQLiteConnection.CreateFile(databaseName);
+                SQLiteConnection.CreateFile(dbPath);
                 CreateTables();
             }
         }
@@ -63,12 +92,12 @@ namespace EfficiencyMonitor
             SQLiteFactory factory = (SQLiteFactory)DbProviderFactories.GetFactory("System.Data.SQLite");
             using (SQLiteConnection connection = (SQLiteConnection)factory.CreateConnection())
             {
-                connection.ConnectionString = "Data Source = " + databaseName;
+                connection.ConnectionString = "Data Source = " + dbPath;
                 connection.Open();
 
                 using (SQLiteCommand command = new SQLiteCommand(connection))
                 {
-                    command.CommandText = @"CREATE TABLE [Applications] (
+                    command.CommandText = @"CREATE TABLE [KnownApplications] (
                     [id] integer PRIMARY KEY AUTOINCREMENT NOT NULL,
                     [name] char(100) NOT NULL,
                     [time] int NOT NULL
@@ -82,34 +111,62 @@ namespace EfficiencyMonitor
         private void OnTimedEvent(object sender, System.Timers.ElapsedEventArgs e)
         {
             _time += 1;
+            SaveTime += 1;
             if(_appName != wm.GetActiveWindowTitle())
             {
-                if (_appName != null)
+                if (_appName != "")
                     UpdateDict(_appName, _time);
                 //_appName = wm.GetActiveWindowTitle();
                 _appName = wm.GetActiveProcessName();
                 _time = 0;
             }
+            runningTime = DateTime.Now - startTime;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}",
+            runningTime.Hours, runningTime.Minutes, runningTime.Seconds);
+            TimeLabel.Dispatcher.Invoke(new Action(() => { TimeLabel.Content = elapsedTime; }));
+            if(SaveTime >= maxSaveTime)
+            {
+                dc.UpdateAllProcess(dbpc);
+                SaveTime = 0;
+            }
+            if(am.timer.Enabled == false)
+            {
+                am.StartTimer();
+            }
         }
 
         private void UpdateDict(string appName, ulong time)
         {
-            if (!dict.ContainsKey(appName))
+            //if (!dict.ContainsKey(appName))
+            //{
+            //    dict.Add(appName, time);
+            //}
+            //else
+            //{
+            //    dict[appName] += time;
+            //}
+            if (!pc.ContainsName(appName))
             {
-                dict.Add(appName, time);
+                pc.Add(new ProcessData(appName, time));
             }
             else
             {
-                dict[appName] += time;
-            }            
-            listBox.Dispatcher.Invoke(new Action(() => { listBox.ItemsSource = dict; }));
-            listBox.Dispatcher.Invoke(new Action(() => { listBox.Items.Refresh(); }));
+                pc.Update(appName, time);
+            }
+            if (!dbpc.ContainsName(appName))
+                dbpc.Add(new ProcessData(appName, time));
+            else
+                dbpc.Update(appName, time);
+            //pc.Update(appName, time);
+            listView.Dispatcher.Invoke(new Action(() => { listView.ItemsSource = pc; }));
+            listView.Dispatcher.Invoke(new Action(() => { listView.Items.Refresh(); }));
         }
 
         private void StartBtn_Click(object sender, RoutedEventArgs e)
         {
             t.Enabled = true;
             t.Start();
+            startTime = DateTime.Now;
         }
 
         private void PauseBtn_Click(object sender, RoutedEventArgs e)
@@ -128,7 +185,7 @@ namespace EfficiencyMonitor
                 TrayIcon.Icon = EfficiencyMonitor.Properties.Resources.eye; // изображение для трея
                                                                              // обратите внимание, за ресурсом с картинкой мы лезем в свойства проекта, а не окна,
                                                                              // поэтому нужно указать полный namespace
-                TrayIcon.Text = "Here is tray icon text."; // текст подсказки, всплывающей над иконкой
+                TrayIcon.Text = "Efficiency Monitor"; // текст подсказки, всплывающей над иконкой
                 TrayMenu = Resources["TrayMenu"] as ContextMenu; // а здесь уже ресурсы окна и тот самый x:Key
 
                 // сразу же опишем поведение при щелчке мыши, о котором мы говорили ранее
@@ -170,14 +227,14 @@ namespace EfficiencyMonitor
              // прячем его
                 Hide();
                 // меняем надпись на пункте меню
-                (TrayMenu.Items[0] as MenuItem).Header = "Show";
+                (TrayMenu.Items[0] as MenuItem).Header = "Показать";
             }
             else
             { // а если не видно
               // показываем
                 Show();
                 // меняем надпись на пункте меню
-                (TrayMenu.Items[0] as MenuItem).Header = "Hide";
+                (TrayMenu.Items[0] as MenuItem).Header = "Спрятать";
                 WindowState = CurrentWindowState;
                 Activate(); // обязательно нужно отдать фокус окну,
                             // иначе пользователь сильно удивится, когда увидит окно
@@ -197,7 +254,7 @@ namespace EfficiencyMonitor
                 // если окно минимизировали, просто спрячем
                 Hide();
                 // и поменяем надпись на менюшке
-                (TrayMenu.Items[0] as MenuItem).Header = "Show";
+                (TrayMenu.Items[0] as MenuItem).Header = "Показать";
             }
             else
             {
@@ -208,6 +265,30 @@ namespace EfficiencyMonitor
         private void MenuExitClick(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void UpdateDB_Click(object sender, RoutedEventArgs e)
+        {
+            dc.UpdateAllProcess(dbpc);
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            im.Unsubscribe();
+            TrayIcon.Dispose();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            //dc.UpdateAllProcess(dbpc);
+            im.Unsubscribe();
+            TrayIcon.Dispose();
+        }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            Settings set = new Settings(this);
+            set.Show();
         }
     }
 }
